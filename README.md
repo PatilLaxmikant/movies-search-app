@@ -6,6 +6,7 @@ A React-based application that fetches movie data using the OMDB API.
 - 🎥 Display movie details (poster, rating, title)
 - 📡 Uses OMDB API for real-time data
 - 🌙 Dark-themed responsive UI
+- ⚡ Implement a loading state and handle errors gracefully.
 
 ## 🛠 Tech Stack
 - **React.js** - Frontend Framework
