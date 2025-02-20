@@ -29,6 +29,8 @@ export default function MovieSearchApp() {
 
   return (
     <div className="max-w-[100vw] shadow-2xl min-h-[100vh] mx-auto p-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+
+      {/* Input Componene */}
       <div className="max-w-[1225px] bg-white/10 p-4 rounded-lg shadow-lg mb-6 mx-auto">
         <input
           type="search"
@@ -38,35 +40,24 @@ export default function MovieSearchApp() {
           placeholder="Search for a movie..."
         />
       </div>
+
+      {/* Result Componene */}
       {movies.length === 0 ? (
         // no white space, tab etc
         (search.trim() === "") ? (
           <div className="text-3xl text-center mt-6 text-white-500">Enter a Movie Name</div>
         ) : (
-          <div className="text-3xl text-center mt-6 animate-pulse text-cyan-400">Loading...</div>
+          (error !== null) ? (
+            <div className="text-3xl text-center mt-6 text-white-500">{error}</div>
+          ) : (
+            <div className="text-3xl text-center mt-6 animate-pulse text-cyan-400">Loading...</div>
+          )
         )
       ) : (
         <Result movies={movies} />
       )}
 
     </div>
-
-
-    // <div className="max-w-[1240px] shadow-xl min-h-[400px] mx-auto p-3">
-    //       <input
-    //         type="search"
-    //         value={search}
-    //         onChange={(e) => setSearch(e.target.value)}
-    //         className="w-full border border-black rounded text-slate-700 p-4"
-    //         placeholder="Search for a movie..."
-    //       />
-    //       {movies.length === 0 ? (
-    //         <div className="text-3xl text-center mt-2">Loading...</div>
-    //       ) : (
-    //         <Result movies={movies} />
-    //       )}
-    //     </div>
-
 
   );
 }
